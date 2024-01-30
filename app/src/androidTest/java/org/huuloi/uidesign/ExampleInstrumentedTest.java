@@ -1,4 +1,4 @@
-package org.duchoang.uidesign;
+package org.huuloi.uidesign;
 
 import android.content.Context;
 

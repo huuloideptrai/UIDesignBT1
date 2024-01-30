@@ -1,19 +1,25 @@
 plugins {
     id("com.android.application")
 }
+val buildToolsVersion by extra("33.0.1")
+val compileSdkVersion by extra(34)
+val sourceCompatibility by extra(VERSION_17)
+val targetCompatibility by extra(JavaVersion.VERSION_17)
+val defaultApplicationId by extra("org.huuloi.uidesignbt1")
 
 android {
     namespace = "org.duchoang.uidesign"
-    compileSdk = 34
+    compileSdkVersion(compileSdkVersion)
 
     defaultConfig {
-        applicationId = "org.duchoang.uidesign"
+        applicationId = defaultApplicationId
         minSdk = 28
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdkVersion(defaultApplicationId)
+        versionCode = compileSdk
+        versionName = defaultApplicationId
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        applicationIdSuffix = defaultApplicationId
     }
 
     buildTypes {
@@ -23,9 +29,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = sourceCompatibility
+        targetCompatibility = targetCompatibility
     }
+    buildToolsVersion = buildToolsVersion
 }
 
 dependencies {
